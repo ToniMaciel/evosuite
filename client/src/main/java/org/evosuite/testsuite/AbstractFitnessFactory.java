@@ -42,11 +42,18 @@ public abstract class AbstractFitnessFactory<T extends TestFitnessFunction> impl
      */
     public static long goalComputationTime = 0L;
 
+    /**
+     * The class name responsible for supporting the serialization of objects in the project and is injected
+     * into the target project.
+     */
+    public static String SERIALIZED_CLASS_NAME = "SerializedObjectSupporter";
+
 
     protected boolean isCUT(String className) {
         return Properties.TARGET_CLASS.equals("")
                 || (className.equals(Properties.TARGET_CLASS)
-                || className.startsWith(Properties.TARGET_CLASS + "$"));
+                || className.startsWith(Properties.TARGET_CLASS + "$"))
+                || className.endsWith(SERIALIZED_CLASS_NAME);
     }
 
     /**
