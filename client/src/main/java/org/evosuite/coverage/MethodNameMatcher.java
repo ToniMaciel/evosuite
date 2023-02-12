@@ -90,7 +90,7 @@ public class MethodNameMatcher {
             return true;
 
         final boolean noMethodTargetSpecified = targetMethod.isEmpty() && targetMethodList.isEmpty()
-                && targetMethodPrefix.isEmpty();
+                && targetMethodPrefix.isEmpty() && targetMethodRegex.isEmpty();
         return noMethodTargetSpecified;
 
     }
