@@ -78,13 +78,18 @@ public class MethodNameMatcher {
 			}
 		}
 
+		final String targetMethodRegex = Properties.TARGET_METHOD_REGEX;
+        if (!targetMethodRegex.isEmpty()
+                && methodName.matches(targetMethodRegex))
+            return true;
+
 		final String targetMethodPrefix = Properties.TARGET_METHOD_PREFIX;
 		if (!targetMethodPrefix.isEmpty()
 				&& methodName.startsWith(targetMethodPrefix))
 			return true;
 
 		final boolean noMethodTargetSpecified = targetMethod.isEmpty() && targetMethodList.isEmpty()
-				&& targetMethodPrefix.isEmpty();
+				&& targetMethodPrefix.isEmpty() && targetMethodRegex.isEmpty();
 		return noMethodTargetSpecified;
 
 	}

@@ -28,6 +28,7 @@ import org.evosuite.runtime.RuntimeSettings;
 import org.evosuite.runtime.sandbox.Sandbox;
 import org.evosuite.utils.LoggingUtils;
 import org.evosuite.utils.FileIOUtils;
+import org.junit.runners.Parameterized.Parameter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -1456,6 +1457,12 @@ public class Properties {
 	/** Method under test */
 	@Parameter(key = "target_method_list", group = "Runtime", description = "A colon(:) separated list of methods for which to generate tests")
 	public static String TARGET_METHOD_LIST = "";
+    
+    /**
+     * Method under test
+     */
+    @Parameter(key = "target_method_regex", group = "Runtime", description = "Regex to match the target method")
+    public static String TARGET_METHOD_REGEX = "";
 
 	@Parameter(key = "hierarchy_data", group = "Runtime", description = "File in which hierarchy data is stored")
 	public static String HIERARCHY_DATA = "hierarchy.xml";
